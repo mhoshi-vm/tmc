@@ -1,0 +1,42 @@
+---
+apiVersion: data.packaging.carvel.dev/v1alpha1
+kind: Package
+metadata:
+  name: bug.94.bug.94.com.0.0.1
+spec:
+  refName: bug.94.bug.94.com
+  template:
+    spec:
+      deploy:
+      - kapp: {}
+      fetch:
+      - inline:
+          paths:
+            config/base.yaml: |
+              a: a 
+      template:
+      - ytt:
+          ignoreUnknownComments: true
+          paths:
+          - 'config'
+          - '-'
+  valuesSchema:
+    openAPIv3:
+      properties:
+        resources:
+          default: {}
+          type: object
+      title: bug.94.bug.94.com values schema
+  version: 0.0.1
+---
+apiVersion: data.packaging.carvel.dev/v1alpha1
+kind: PackageMetadata
+metadata:
+  name: bug.94.bug.94.com
+spec:
+  displayName: bug.94
+  longDescription: bug.94
+  maintainers:
+  - name: bug.94
+  providerName: VMware
+  shortDescription: bug.94

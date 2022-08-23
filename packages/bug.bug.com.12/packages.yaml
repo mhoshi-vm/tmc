@@ -1,0 +1,42 @@
+---
+apiVersion: data.packaging.carvel.dev/v1alpha1
+kind: Package
+metadata:
+  name: bug.12.bug.12.com.0.0.1
+spec:
+  refName: bug.12.bug.12.com
+  template:
+    spec:
+      deploy:
+      - kapp: {}
+      fetch:
+      - inline:
+          paths:
+            config/base.yaml: |
+              a: a 
+      template:
+      - ytt:
+          ignoreUnknownComments: true
+          paths:
+          - 'config'
+          - '-'
+  valuesSchema:
+    openAPIv3:
+      properties:
+        resources:
+          default: {}
+          type: object
+      title: bug.12.bug.12.com values schema
+  version: 0.0.1
+---
+apiVersion: data.packaging.carvel.dev/v1alpha1
+kind: PackageMetadata
+metadata:
+  name: bug.12.bug.12.com
+spec:
+  displayName: bug.12
+  longDescription: bug.12
+  maintainers:
+  - name: bug.12
+  providerName: VMware
+  shortDescription: bug.12

@@ -1,0 +1,42 @@
+---
+apiVersion: data.packaging.carvel.dev/v1alpha1
+kind: Package
+metadata:
+  name: bug.57.bug.57.com.0.0.1
+spec:
+  refName: bug.57.bug.57.com
+  template:
+    spec:
+      deploy:
+      - kapp: {}
+      fetch:
+      - inline:
+          paths:
+            config/base.yaml: |
+              a: a 
+      template:
+      - ytt:
+          ignoreUnknownComments: true
+          paths:
+          - 'config'
+          - '-'
+  valuesSchema:
+    openAPIv3:
+      properties:
+        resources:
+          default: {}
+          type: object
+      title: bug.57.bug.57.com values schema
+  version: 0.0.1
+---
+apiVersion: data.packaging.carvel.dev/v1alpha1
+kind: PackageMetadata
+metadata:
+  name: bug.57.bug.57.com
+spec:
+  displayName: bug.57
+  longDescription: bug.57
+  maintainers:
+  - name: bug.57
+  providerName: VMware
+  shortDescription: bug.57
